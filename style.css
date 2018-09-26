@@ -1,0 +1,12 @@
+#my-image1, #my-image2, #my-image3{
+    border: 1px solid rgb(0, 255, 64);
+    margin: 15px 30px;
+    padding: 20px;
+    width: 20%;
+}
+div {
+    border: 3px solid gold ;
+    width: 40%;
+    background-color: brown;
+    padding-right: 10%
+}
