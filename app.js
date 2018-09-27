@@ -101,3 +101,15 @@ function totalData() {
 setupEventListeners();
 newImages();
 
+siteData = {
+ siteName = 'busmall':
+siteDescription: 'Another JS Site'};
+
+localData;
+
+localStorage.setItem ('siteData',JSON.stringfy ( sitedata) );
+
+localData = JSON.PARSEL ( localStorage.getItem('sitedata'));
+
+siteName = localStorage.getitem( 'siteName');
+Headers.innerHTML = localdata.busmall;
