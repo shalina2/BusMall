@@ -1,21 +1,25 @@
 
 'use strict';
 
-var imgElement1 = document.getElementById('my-image1');
-var imgElement2 = document.getElementById('my-image2');
-var imgElement3 = document.getElementById('my-image3');
-var maxClicksAllowed = 25;
+var images =3;
+var maxvote =5;
+var votetotal =0;
 
-function Images(filepath, numberOfTimesShown, votes,views){
-  this.imgSource = filepath;
-  this.numberOfTimesShown = numberOfTimesShown;
-  this.votes = votes;
-  this.views=views;
-  Images.pic.push(this);
+
+var pictures = function(filepath,fileName) {
+  this.filepath =filepath;
+  this.fileName =fileName;
+  this.views = 0;
+  this.clicks = 0;
+  pictures.allimages =[];
 }
-Images.pic = [];
+function loadImages() {
+  var localpictures = localStorage.getItem('pic');
+  var pictures = JSON.parse(localpictures);
+  if (images && images.length) {
 
-function newImages() {
+  }
+  function newImages() {
   new Images('https://raw.githubusercontent.com/codefellows/seattle-201d39/master/class-11-av-practical-clicktracker/lab/assets/bag.jpg', 'bag');
   new Images('https://raw.githubusercontent.com/codefellows/seattle-201d39/master/class-11-av-practical-clicktracker/lab/assets/banana.jpg', 'banana');
   new Images('https://raw.githubusercontent.com/codefellows/seattle-201d39/master/class-11-av-practical-clicktracker/lab/assets/bathroom.jpg', 'bathroom');
@@ -36,6 +40,18 @@ function newImages() {
   new Images('https://raw.githubusercontent.com/codefellows/seattle-201d39/master/class-11-av-practical-clicktracker/lab/assets/usb.gif', 'usb');
   new Images('https://raw.githubusercontent.com/codefellows/seattle-201d39/master/class-11-av-practical-clicktracker/lab/assets/water-can.jpg', 'water-can');
   new Images('https://raw.githubusercontent.com/codefellows/seattle-201d39/master/class-11-av-practical-clicktracker/lab/assets/wine-glass.jpg', 'wine-glass');
+}
+
+
+
+
+
+}
+
+function showChart(){
+  var labels =[];
+  var clickdata =[];
+
 }
 
 function setupEventListeners() {
@@ -101,15 +117,35 @@ function totalData() {
 setupEventListeners();
 newImages();
 
-siteData = {
- siteName = 'busmall':
-siteDescription: 'Another JS Site'};
+newFunction();
 
-localData;
+var context = document.getElementById('chart').msGetInputContext('2d');
+var mychart = new Chart(context, {
+  type:'horizontalBar',
+  data :{
+    labels: images,
+    datasets :[
+      {
+        label:'number of clicks',
+        data: voteData,
 
-localStorage.setItem ('siteData',JSON.stringfy ( sitedata) );
+      },
+    ],
+  },
+  options :{
+    responsive:false,
+    maintainAspectRatio:true,
+    scales: {
+      yAkes: [
+        {
+          ticks: {
+            beginAtZero: true,
+          },
+        },
+      ],
+    },
+  
+});
+}
 
-localData = JSON.PARSEL ( localStorage.getItem('sitedata'));
-
-siteName = localStorage.getitem( 'siteName');
-Headers.innerHTML = localdata.busmall;
+showChart();
